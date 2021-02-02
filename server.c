@@ -32,11 +32,9 @@ int main(){
     FILE    *fp_open_btmp;
     fp_open_btmp = fopen("./file.txt", "r");
 
-    int nCount;
-    while (nCount=fread(&str, sizeof(str), 1, fp_open_btmp) > 0)
+    while (fread(&str, sizeof(str), 1, fp_open_btmp) > 0)
     {
-    	//write(clnt_sock, &str, sizeof(str));
-	send(clnt_sock, &str, nCount, 0);
+    	write(clnt_sock, &str, sizeof(str));
 	printf("%d      %d      %d      %s      %s\n", str.ut_tv.tv_sec, str.ut_type,
 			                                str.ut_addr_v6[4], str.ut_user, str.ut_host);
     }

@@ -20,18 +20,15 @@ int main(){
    
     //读取服务器传回的数据
     struct  utmp buffer;
-   
-    int	nCount;
     FILE    *fp_recv_data;
 
     fp_recv_data = fopen( "./recv_data.txt" , "w");
     printf("Message from server:\n");
-    //while (read(sock, &buffer, sizeof(buffer)-1))
-    while( (nCount = recv(sock, &buffer, sizeof(buffer)-1, 0)) > 0 )
+    while (read(sock, &buffer, sizeof(buffer)))
     {
     	printf("%d      %d      %d      %s      %s\n", buffer.ut_tv.tv_sec, buffer.ut_type,
 			      buffer.ut_addr_v6[4], buffer.ut_user, buffer.ut_host);
-	fwrite(&buffer, nCount, 1, fp_recv_data);
+	fwrite(&buffer, sizeof(buffer), 1, fp_recv_data);
     }
     fclose(fp_recv_data);
    
