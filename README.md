@@ -2,8 +2,8 @@
 #### 工具作用
 如果需要提取特定时间段的btmp日志，可以使用该工具。
 #### 使用方法
-1.确认btmp日志的路径，默认为/var/log/btmp，如不为该路径，在generate_logfile.c中自定义路径；
-2.编译运行，输入timestamp格式的起止时间
+1.确认btmp日志的路径，默认为/var/log/btmp，如不为该路径，在generate_logfile.c中自定义路径； <br>
+2.编译运行，输入timestamp格式的起止时间 <br>
 ```python
 # gcc generate_logfile.c -o generate_logfile
 # ./generate_logfile 
@@ -32,7 +32,7 @@ Please input the endtime(timestamp) :1612165427
 1612165426      6       0       db      182.254.168.205
 1612165427      6       0       qe      181.48.46.195
 ```
-可以看到，由于btmp的两个函数分别都使用了printf，所以最终结果打印了两遍。
+可以看到，由于btmp的两个函数分别都使用了printf，所以最终结果打印了两遍。 <br>
 3.生成binlog.txt和filelog.txt。
 ```python
 # cat filelog.txt 
