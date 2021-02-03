@@ -1,9 +1,9 @@
-# btmp_log_extraction
-#### 工具作用
+# btmp日志提取工具
+### 工具作用
 如果需要提取特定时间段的btmp日志，可以使用该工具。
-#### 使用方法
-1.确认btmp日志的路径，默认为/var/log/btmp，如不为该路径，在generate_logfile.c中自定义路径； <br>
-2.编译运行，输入timestamp格式的起止时间 <br>
+### 使用方法
+1. 确认btmp日志的路径，默认为/var/log/btmp，如不为该路径，在generate_logfile.c中自定义路径； <br>
+2. 编译运行，输入timestamp格式的起止时间 <br>
 ```python
 # gcc generate_logfile.c -o generate_logfile
 # ./generate_logfile 
@@ -33,7 +33,7 @@ Please input the endtime(timestamp) :1612165427
 1612165427      6       0       qe      181.48.46.195
 ```
 可以看到，由于btmp的两个函数分别都使用了printf，所以最终结果打印了两遍。 <br>
-3.生成binlog.txt和filelog.txt。
+3. 生成binlog.txt和filelog.txt。
 ```python
 # cat filelog.txt 
 1612165251      6       0       ba      181.48.46.195
@@ -50,7 +50,7 @@ Please input the endtime(timestamp) :1612165427
 ```
 binlog.txt的内容是二进制数据，跟btmp日志内容一样，filelog.txt的内容便于阅读了。第1列表示timestamp时间；第2列表示utmp结构体的类型，其中6表示登录会话，详情参考/usr/include/bits/utmp.h；第3列表示远程主机的Internet地址，我也不知道为什么总是0；第4列表示登陆用户名；第5列表示主机名。
 
-#### 更新记录
+### 更新记录
 20210201 读btmp首行内容<br>
 20210202 socket网络传输btmp内容偶尔失败，需要继续测试排查 <br>
 20210203 btmp内容转换为文本数据，完成v1版本。
