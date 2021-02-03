@@ -1,7 +1,6 @@
 /* 如果需要分析的btmp文件路径不是/var/log/btmp，请按照如下格式自定义
  * # define _PATH_BTMP             "/root/last_tmp/btmp"
  */
-# define _PATH_BTMP             "/root/last_tmp/btmp"
 
 #include	<stdio.h>
 #include	<utmp.h>
