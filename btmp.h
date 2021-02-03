@@ -3,6 +3,8 @@
 # define _PATH_BTMP             "/var/log/btmp"
 #endif
 
+/* 关于utmp的结构及各部分含义，详见/usr/include/bits/utmp.h */
+  
 /* 根据starttime和endtime，从btmp日志中提取相应时间段的数据，并
  * 将二进制数据写入新生成的文件
  */
